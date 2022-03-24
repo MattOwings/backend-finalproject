@@ -2,42 +2,46 @@ DROP DATABASE IF EXISTS instructor;
 CREATE DATABASE instructor;
 USE instructor;
 
-CREATE TABLE register (
-    username VARCHAR(16) NOT NULL,
-    pass VARCHAR(40) NOT NULL,
-    email VARCHAR(40) NOT NULL,
-    masterkey INT(6) NOT NULL AUTO_INCREMENT,
-
+CREATE TABLE instRegister (
+    firstname VARCHAR(16) NOT NULL,
+    middlename VARCHAR (16),
+    lastname VARCHAR(16) NOT NULL,
+    birthday VARCHAR(16) NOT NULL,
+    gender VARCHAR(16) NOT NULL,
+    email VARCHAR(20) NOT NULL,
+    pass VARCHAR(35) NOT NULL,
     PRIMARY KEY (email)
-
 );
 
-CREATE TABLE instructorProfile (
-    firstname VARCHAR(30),
-    middlename VARCHAR(30),
-    lastname VARCHAR(30) NOT NULL,
-    birthday VARCHAR(30),
-    gender VARCHAR(12) NOT NULL,
-    ID INT(6) NOT NULL AUTO_INCREMENT,
-
-    PRIMARY KEY (ID)
-
-
-);
-
-CREATE TABLE courses (
-    courseID VARCHAR(30) NOT NULL,
-    courseName VARCHAR(40) NOT NULL,
-    courseTime VARCHAR(30) NOT NULL,
-    courseClassroom VARCHAR(30) NOT NULL,
-    courseSemester VARCHAR(30) NOT NULL,
+CREATE TABLE myCourses (
+    courseName VARCHAR(50) NOT NULL,
+    courseID INT(11) NOT NULL AUTO_INCREMENT,
+    courseTime VARCHAR(16) NOT NULL,
+    courseRoom VARCHAR(16) NOT NULL,
+    courseSemester VARCHAR(16) NOT NULL,
     PRIMARY KEY (courseID)
 );
 
 CREATE TABLE students (
     firstname VARCHAR(16) NOT NULL,
-    studentID VARCHAR(5) NOT NULL AUTO_INCREMENT,
-    finalGrade VARCHAR(5) NOT NULL,
-
+    lastname VARCHAR(16) NOT NULL,
+    studentID INT(11) NOT NULL AUTO_INCREMENT,
+    finalGradeLetter VARCHAR(3) NOT NULL,
     PRIMARY KEY (studentID)
 );
+
+INSERT INTO myCourses (courseName, courseTime, courseRoom, courseSemester) VALUES 
+('Backend Web Dev', 'MW 9:25am - 10:50pm', 'GW205', "Spring 2022"),
+('Data Structures', 'TH 2:10pm - 3:25pm', 'GW303', "Spring 2022"),
+('Linux for Cybersecurity', 'F 12:45pm - 2:00pm', 'Library 208', "Summer 2022"),
+('Object Oriented Programming', 'MT 8:00am - 9:25pm', 'B532', 'Spring 2022');
+
+INSERT INTO students (firstname, lastname, finalGradeLetter) VALUES 
+('Matt', 'Owings', 'A'),
+('Dalton', 'Lee', 'B'),
+('Logon', "Alan", 'F'),
+('Joshua', 'Paul', 'D'),
+('Desmond', 'White', 'C');
+
+CREATE USER 'mowings'@'localhost' IDENTIFIED BY 'mowings';
+GRANT ALL PRIVILEGES ON instructor.* TO 'mowings'@'localhost';
