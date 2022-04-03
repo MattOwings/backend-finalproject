@@ -1,21 +1,53 @@
 * {
-  margin: 0;
+  margin: 0rem;
   padding: 0;
   font-size: 10px;
 }
 
-.head-banner {
-  width: 100vw;
+html {
+  background-color: #424242;
+}
+
+.navbar {
   background-color: black;
+  width: 100%;
+  margin-top: 2rem;
   color: white;
 }
 
-h1 {
-  font-size: 4rem;
-  font-weight: bold;
+.navbar h1 {
+  font-size: 6rem;
+  text-align: center;
 }
 
-p {
-  font-size: 2rem;
+.header {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 8rem;
+  color: white;
+  background-color: black;
+}
+
+.my-courses, .my-students {
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.my-courses p, .my-students p {
+  font-size: 4rem;
+  border: 2px solid red;
+  text-align: center;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

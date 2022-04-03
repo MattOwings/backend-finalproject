@@ -1,9 +1,34 @@
 <?php 
 
+    // Database connection
+    $dsn = 'mysql:host=localhost;dbname=instructor';
+    $username = 'mowings';
+    $password = 'root';
 
-echo "<p>
-    Testing echo line
-    </p>";
+    try {
+        $db = new PDO($dsn, $username, $password);
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        echo $error_message;
+        include('database_error.php');
+        exit();
+    }
+
+    // Students SQL Query
+    $query = "SELECT firstname, lastname FROM students;";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $students = $statement->fetchAll();
+    $statement->closeCursor();
+
+    // My Courses SQL Query
+    $query = "SELECT courseName FROM mycourses;";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $myCourses = $statement->fetchAll();
+    $statement->closeCursor();
+
+    
 
 
 ?>
@@ -20,10 +45,27 @@ echo "<p>
     <title>Backend Final</title>
 </head>
 <body>
-    <div class="head-banner">
-        <h1>Instructor Admin Panel</h1>
+    <div class="navbar">
+        <h1>Navigation Bar Placeholder</h1>
     </div>
-    <br>
-    <h1>Testing</h1>
+
+    <h1 class="header">Courses I Teach</h1>
+    <div class="my-courses">
+        <?php
+            foreach($myCourses as $courses) {
+            print_r('<div class="flex-item"><p>'.$courses[0].'</p></div>');
+        }
+        ?>
+    </div>
+
+    <h1 class="header">My Students</h1>
+    <div class="my-students">
+        <?php
+            foreach($students as $student) {
+            print_r('<p>'.$student[1].', '.$student[0].'</p>');
+        }
+        ?>
+    </div>
+    
 </body>
 </html>
