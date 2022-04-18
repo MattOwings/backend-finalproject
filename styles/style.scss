@@ -8,6 +8,42 @@ html {
     background-color: rgb(66, 66, 66);
 }
 
+.register-form {
+    margin-top: 5rem;
+    text-align: center;
+    color: white;
+    h1, a {
+        font-size: 5rem;
+        margin-bottom: 3rem;
+    }
+    input, label, a {
+        font-size: 4rem;
+    }
+    .between-inputs {
+        margin-top: 3rem;
+    }
+    input:not(:first-child), button:not(:first-child), a {
+        margin-top: 2rem;
+    }
+    button, a {
+        font-size: 4rem;
+        background-color: black;
+        color: white;
+        padding: 0.5rem;
+        border: 2px solid white;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.5s;
+        &:hover {
+            border: 2px solid red;
+            color: red;
+        }
+    }
+    a {
+        margin: 3rem;
+    }
+}
+
 
 .navbar {
     h1 {
@@ -47,5 +83,17 @@ html {
         background-color: black;
         color: white;
         border-radius: 2rem;
+    }
+}
+
+.footer {
+    margin-top: 15rem;
+    text-align: center;
+    color: white;
+    h1 {
+        font-size: 4rem;
+    }
+    h2 {
+        font-size: 3rem;
     }
 }
