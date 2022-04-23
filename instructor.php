@@ -14,14 +14,21 @@
     }
 
     // Students SQL Query
-    $query = "SELECT firstname, lastname FROM students;";
+    $query = "SELECT * FROM instregister;";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $instructor = $statement->fetchAll();
+    $statement->closeCursor();
+
+    // Students SQL Query
+    $query = "SELECT * FROM students;";
     $statement = $db->prepare($query);
     $statement->execute();
     $students = $statement->fetchAll();
     $statement->closeCursor();
 
     // My Courses SQL Query
-    $query = "SELECT courseName FROM mycourses;";
+    $query = "SELECT * FROM mycourses;";
     $statement = $db->prepare($query);
     $statement->execute();
     $myCourses = $statement->fetchAll();
@@ -45,18 +52,30 @@
     <title>Backend Final</title>
 </head>
 <body>
-    <div class="navbar">
-        <h1>Logged in as:</h1>
-    </div>
 
-    
+    <h1 class="header">Instructor Profile</h1>
+    <div class="my-courses">
+        <?php
+            foreach($instructor as $inst) {
+            print_r('<div class="flex-item"><p>'.$inst[0].'<br>Name: 
+            '.$inst[1].' '.$inst[2].'<br> 
+            '.$inst[3].'<br>
+            '.$inst[4].'
+            </p></div>');
+        }
+        ?>
+    </div>
 
 
     <h1 class="header">Courses I Teach</h1>
     <div class="my-courses">
         <?php
             foreach($myCourses as $courses) {
-            print_r('<div class="flex-item"><p>'.$courses[0].'</p></div>');
+            print_r('<div class="flex-item"><p>'.$courses[0].'<br>
+            '.$courses[2].'<br>Room: 
+            '.$courses[3].'<br>
+            '.$courses[4].'<br>
+            </p></div>');
         }
         ?>
     </div>
@@ -65,7 +84,10 @@
     <div class="my-students">
         <?php
             foreach($students as $student) {
-            print_r('<p>'.$student[1].', '.$student[0].'</p>');
+            print_r('<p>'.$student[1].', '.$student[0].'
+            <br>Grade: '.$student[3].'
+            <br>ID: '.$student[2].'
+            </p>');
         }
         ?>
     </div>
