@@ -3,12 +3,12 @@ CREATE DATABASE instructor;
 USE instructor;
 
 CREATE TABLE instRegister (
-    username VARCHAR(16) NOT NULL,
-    firstname VARCHAR(16) NOT NULL,
-    lastname VARCHAR(16) NOT NULL,
-    gender VARCHAR(16) NOT NULL,
+    username VARCHAR(40) NOT NULL,
+    firstname VARCHAR(40) NOT NULL,
+    lastname VARCHAR(40) NOT NULL,
+    gender VARCHAR(40) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    pass VARCHAR(35) NOT NULL,
+    pass VARCHAR(40) NOT NULL,
     ID INT(200) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (ID)
 );
@@ -16,17 +16,17 @@ CREATE TABLE instRegister (
 CREATE TABLE myCourses (
     courseName VARCHAR(50) NOT NULL,
     courseID INT(11) NOT NULL AUTO_INCREMENT,
-    courseTime VARCHAR(16) NOT NULL,
-    courseRoom VARCHAR(16) NOT NULL,
-    courseSemester VARCHAR(16) NOT NULL,
+    courseTime VARCHAR(40) NOT NULL,
+    courseRoom VARCHAR(40) NOT NULL,
+    courseSemester VARCHAR(40) NOT NULL,
     PRIMARY KEY (courseID)
 );
 
 CREATE TABLE students (
-    firstname VARCHAR(16) NOT NULL,
-    lastname VARCHAR(16) NOT NULL,
-    studentID INT(11) NOT NULL AUTO_INCREMENT,
-    finalGradeLetter VARCHAR(3) NOT NULL,
+    firstname VARCHAR(40) NOT NULL,
+    lastname VARCHAR(40) NOT NULL,
+    studentID INT(40) NOT NULL AUTO_INCREMENT,
+    finalGradeLetter VARCHAR(40) NOT NULL,
     PRIMARY KEY (studentID)
 );
 

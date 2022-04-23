@@ -54,7 +54,8 @@
     <div class="navbar">
         <h1>Login Page</h1>
     </div>
-    
+    <h1 style="background: none; text-align: center;"><a style="font-size: 5rem; color: cyan; text-align: center;" href="index.php">Go to Home Page</a></h1>
+
 
     <form class="register-form" name="form" action="" method="get">
                     <label>Username or Email: </label>
@@ -121,11 +122,14 @@
         <?php
             if ($loggedIn == true) {
                 foreach($instructor as $inst) {
-                print_r('<div class="flex-item"><p>'.$inst[0].'<br>Name: 
+                if ($inst[0] == $_GET['username']) {
+                    print_r('<div class="flex-item"><p>'.$inst[0].'<br>Name: 
                 '.$inst[1].' '.$inst[2].'<br> 
                 '.$inst[3].'<br>
                 '.$inst[4].'
                 </p></div>');
+                }
+                
             }
         }
         ?>

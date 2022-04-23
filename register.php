@@ -33,11 +33,17 @@
     <div class="navbar">
         <h1>Register Page</h1>
     </div>
+        <h1 style="background: none; text-align: center;"><a style="font-size: 5rem; color: cyan; text-align: center;" href="index.php">Go to Home Page</a></h1>
+
 
     <div class="footer">
         <h1>
             <?php 
                 $username = $_GET['username'];
+                
+            $password = $_GET['password'];
+            $confirmpassword = $_GET['confirmpassword'];
+            if ($password == $confirmpassword) {
                 if (strlen($username) > 1) {
                     echo "<h1 style='color: #90EE90'>Your Email Is: $username@aum.edu</h1>";
                     echo "<h1><a style='
@@ -46,6 +52,11 @@
                                 class='homeicon' 
                                 href='http://localhost/backend-finalproject/login.php?username=&password='>Go to Login Page</a></h1>";
                 }
+            } else {
+                echo "<h1 style='color: orange;'>Passwords do NOT match</h1>";
+
+            }
+                
                 
             ?>
 
@@ -90,19 +101,24 @@
             $confirmpassword = $_GET['confirmpassword'];
 
             // Only run if data has been inputted
-            if (strlen($username) > 0 
-                && strlen($fname) > 0
-                && strlen($lname) > 0
-                && strlen($gender) > 0
-                && strlen($email) > 0
-                && strlen($password) > 0
-                ) { 
-                $query = "INSERT INTO instregister (username, firstname, lastname, gender, email, pass) VALUES 
-                ('".$username."', '".$fname."', '".$lname."', '".$gender."', '".$email."', '".$password."');";
-                $statement = $db->prepare($query);
-                $statement->execute();
-                $students = $statement->fetchAll();
-                $statement->closeCursor();
+            
+            if ($password == $confirmpassword) {
+                if (strlen($username) > 0 
+                                && strlen($fname) > 0
+                                && strlen($lname) > 0
+                                && strlen($gender) > 0
+                                && strlen($email) > 0
+                                && strlen($password) > 0
+                                ) { 
+                                $query = "INSERT INTO instregister (username, firstname, lastname, gender, email, pass) VALUES 
+                                ('".$username."', '".$fname."', '".$lname."', '".$gender."', '".$email."', '".$password."');";
+                                $statement = $db->prepare($query);
+                                $statement->execute();
+                                $students = $statement->fetchAll();
+                                $statement->closeCursor();
+                            }
+            } else {
+                echo '<h1>Passwords do NOT match</h1>';
             }
 
         ?></h1>
