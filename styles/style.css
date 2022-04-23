@@ -8,6 +8,17 @@ html {
   background-color: #424242;
 }
 
+.homepage-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .register-form {
   margin-top: 5rem;
   text-align: center;

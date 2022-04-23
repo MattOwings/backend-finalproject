@@ -3,14 +3,14 @@ CREATE DATABASE instructor;
 USE instructor;
 
 CREATE TABLE instRegister (
+    username VARCHAR(16) NOT NULL,
     firstname VARCHAR(16) NOT NULL,
-    middlename VARCHAR (16),
     lastname VARCHAR(16) NOT NULL,
-    birthday VARCHAR(16) NOT NULL,
     gender VARCHAR(16) NOT NULL,
-    email VARCHAR(20) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     pass VARCHAR(35) NOT NULL,
-    PRIMARY KEY (email)
+    ID INT(200) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (ID)
 );
 
 CREATE TABLE myCourses (

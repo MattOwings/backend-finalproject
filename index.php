@@ -15,8 +15,15 @@
     </div>
 
     <div class="register-form">
-        <a href="instructor.php">Go to Login Page</a>
-        <a href="register.php">Create An Account</a>
+        <a class="homeicon" href="http://localhost/backend-finalproject/register.php?username=&fname=&mname=&lname=&gender=&password=&confirmpassword=">Create An Instructor Account</a>
+        <a class="homeicon" href="http://localhost/backend-finalproject/login.php?username=&password=">Go to Login Page</a>
+    </div>
+
+    <div class="footer">
+        <h1>Instructions:</h1>
+        <h2>1. Create an Instructor Account</h2>
+        <h2>2. Login with username/password from step #1</h2>
+        <h2>3. Can view My Courses and Profile after logging in</h2>
     </div>
 
     <div class="footer">

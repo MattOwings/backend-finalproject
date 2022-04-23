@@ -11,8 +11,6 @@
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         echo $error_message;
-        include('database_error.php');
-        exit();
     }
 
     // Students SQL Query
